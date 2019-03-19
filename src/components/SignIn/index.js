@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { compose } from 'recompose';
-import { Button, Navbar, Nav, NavDropdown, FormControl,Form } from 'react-bootstrap'
+import { Button } from 'react-bootstrap'
 import { SignUpLink } from '../SignUp';
 import { PasswordForgetLink } from '../PasswordForget';
 import { withFirebase } from '../Firebase';
 import * as ROUTES from '../../constants/routes';
 
 const SignInPage = () => (
-  
+
   <div className="container mt-8">
     <h1 className="ml-3">Ingresa a Colombia Viva</h1>
     <div> <SignInForm /></div>

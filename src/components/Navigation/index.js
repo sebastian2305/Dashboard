@@ -1,6 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { Button, Navbar, Nav, NavDropdown, FormControl,Form } from 'react-bootstrap'
+import { Button, Navbar, Nav, NavDropdown, Form } from 'react-bootstrap'
 import SignOutButton from '../SignOut';
 import * as ROUTES from '../../constants/routes';
 
@@ -16,10 +15,9 @@ const NavigationAuth = () => (
     <Navbar.Toggle aria-controls="basic-navbar-nav" />
     <Navbar.Collapse id="basic-navbar-nav">
       <Nav className="mr-auto">
-        <Nav.Link href={ROUTES.HOME}>Home</Nav.Link>
-        <Nav.Link href={ROUTES.ADMIN}>Admin</Nav.Link>
+        <Nav.Link href={ROUTES.HOME}>Gŕaficas</Nav.Link>
+        <Nav.Link href={ROUTES.ADMIN}>Administrador</Nav.Link>
           <Nav.Link href={ROUTES.ACCOUNT}>Account</Nav.Link>
-          <Nav.Link href={ROUTES.LANDING}>Landing</Nav.Link>
         <NavDropdown title="App" id="basic-nav-dropdown">
           <NavDropdown.Item href="#action/3.1">Android</NavDropdown.Item>
           <NavDropdown.Item href="#action/3.2">iOS</NavDropdown.Item>

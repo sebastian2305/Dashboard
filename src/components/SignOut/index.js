@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Navbar, Nav, NavDropdown, FormControl,Form } from 'react-bootstrap'
+import { Button } from 'react-bootstrap'
 import { withFirebase } from '../Firebase';
 
 const SignOutButton = ({ firebase }) => (

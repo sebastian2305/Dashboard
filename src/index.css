@@ -14,5 +14,16 @@ code {
 }
 
 h1{
-  color:#04B431;
+  color:#413ea0;
 }
+
+.texto{
+  text-align: center;
+  font-weight:bold;
+  font-size: 200%;
+  color:#15187E;
+  transition: all .2s ease-in-out;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+.texto:hover { transform: scale(1.2); color:#045209}
