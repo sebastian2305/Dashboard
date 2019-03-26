@@ -19,10 +19,10 @@ const RADIAN = Math.PI / 180;
     name: '6 pm', users: 1890, pv: 4800, amt: 2181,
   },
   {
-    name: '8 pm', users: 2390, pv: 3800, amt: 2500,
+    name: '8 pm', users: 590, pv: 3800, amt: 2500,
   },
   {
-    name: '10 pm', users: 3490, pv: 4300, amt: 2100,
+    name: '10 pm', users: 490, pv: 4300, amt: 2100,
   },
 ];
 const dataRadar = [
@@ -89,9 +89,7 @@ const dataVertical = [
 
 const data3 = [
   { name: 'Group A', value: 400 },
-  { name: 'Group B', value: 300 },
-  { name: 'Group C', value: 300 },
-  { name: 'Group D', value: 200 },
+  { name: 'Group B', value: 300 }
 ];
 
 const dataBars = [
@@ -117,7 +115,7 @@ const dataBars = [
     name: '60+', uv: 100, pv: 300, amt: 2100,
   },
 ];
-const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
+const COLORS = ['#01A9DB', '#FF8000', '#FFBB28', '#FF8042'];
 
 const renderCustomizedLabel = ({
   cx, cy, midAngle, innerRadius, outerRadius, percent, index,
@@ -160,14 +158,14 @@ const data = [{name: 'Enero', users: 100, pv: 2600, amt: 2900},{name: 'Febrero',
 const HomePage = () => (
   <div>
     <div class="jumbotron">
-  <h1>Dashboard de Colombia Viva</h1>
-  <p>Aquí encontrarás toda la información de negocio de la app</p>
+  <h1 className="text-center" >Dashboard de Colombia Viva</h1>
+  <div className="text-center">Aquí encontrarás toda la información de negocio de la app</div>
 </div>
 
 <div class="container">
   <div class="row">
     <div class="col-sm-6">
-      <h4>Pregunta 1: Descargas de la aplicación al mes</h4>
+      <h4 className="text-center">Número de usuarios por mes</h4>
         <LineChart width={500} height={250} data={data} margin={{ top: 5, right: 20, bottom: 5, left: 0 }}>
            <Line type="monotone" dataKey="users" stroke="#2d572c" />
            <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
@@ -177,29 +175,30 @@ const HomePage = () => (
          </LineChart>
     </div>
     <div class="col-sm-6 other">
-      <h4>Pregunta 2: Ubicaciones más buscadas</h4>
-        <ScatterChart
+      <h4 className="text-center" >Parques más visitados</h4>
+        <ComposedChart
         width={500}
-        height={300}
+        height={400}
+        data={ dataComposed}
         margin={{
           top: 20, right: 20, bottom: 20, left: 20,
         }}
       >
-        <CartesianGrid />
-        <XAxis type="number" dataKey="x" name="stature" unit="cm" />
-        <YAxis yAxisId="left" type="number" dataKey="y" name="weight" unit="kg" stroke="#01A9DB" />
-        <YAxis yAxisId="right" type="number" dataKey="y" name="weight" unit="kg" orientation="right" stroke="#82ca9d" />
-        <Tooltip cursor={{ strokeDasharray: '3 3' }} />
-        <Scatter yAxisId="left" name="A school" data={data01} fill="#413ea0" />
-        <Scatter yAxisId="right" name="A school" data={data02} fill="#82ca9d" />
-      </ScatterChart>
+        <CartesianGrid stroke="#f5f5f5" />
+        <XAxis dataKey="name" />
+        <YAxis />
+        <Tooltip />
+        <Legend />
+        <Bar dataKey="uv" barSize={20} fill="#413ea0" />
+        <Line type="monotone" dataKey="uv" stroke="#ff7300" />
+      </ComposedChart>
     </div>
   </div>
 </div>
 <div class="container mt-5">
   <div class="row">
     <div class="col-sm-6">
-      <h4>Pregunta 3: Rango de edad de usuarios</h4>
+      <h4 className="text-center" >Rango de edad de usuarios</h4>
         <BarChart
         width={500}
         height={300}
@@ -219,8 +218,7 @@ const HomePage = () => (
       </BarChart>
     </div>
     <div class="col-sm-6 other">
-      <h4>Pregunta 4: Parques más frecuentados</h4>
-        return (
+      <h4 className="text-center" >Zonas con más especies</h4>
       <ComposedChart
         layout="vertical"
         width={500}
@@ -245,7 +243,7 @@ const HomePage = () => (
 <div class="container mt-5">
   <div class="row">
     <div class="col-sm-6">
-      <h4>Pregunta 5: Parques con poca información</h4>
+      <h4 className="text-center" >Número de registros por especie</h4>
         <BarChart
        width={500}
        height={300}
@@ -262,7 +260,7 @@ const HomePage = () => (
      </BarChart>
     </div>
     <div class="col-sm-6 other">
-      <h4>Pregunta 6: Usuarios con mayor interacción</h4>
+      <h4 className="text-center" >Usuarios que más han registrado contenido</h4>
         <ComposedChart
         width={500}
         height={400}
@@ -285,7 +283,7 @@ const HomePage = () => (
 <div class="container mt-5">
   <div class="row">
     <div class="col-sm-6">
-      <h4>Pregunta 7: Horas de mayor uso</h4>
+      <h4 className="text-center" > Horas de uso de la app</h4>
         <AreaChart
             width={500}
             height={250}
@@ -302,7 +300,7 @@ const HomePage = () => (
           </AreaChart>
     </div>
     <div class="col-sm-6 other">
-      <h4>Pregunta 8: Ubicaciones más buscadas</h4>
+      <h4 className="text-center" >Registro de usuarios</h4>
         <BarChart
        width={500}
        height={300}
@@ -323,7 +321,7 @@ const HomePage = () => (
 <div class="container mt-5">
   <div class="row">
     <div class="col-sm-6">
-      <h4>Pregunta 9: Reviews por ubicación</h4>
+      <h4 className="text-center" >Paises y ciudades de los Usuarios</h4>
         <BarChart
        width={500}
        height={300}
@@ -340,7 +338,7 @@ const HomePage = () => (
      </BarChart>
     </div>
     <div class="col-sm-6 other">
-      <h4>Pregunta 10: Parques inseguros (# de Reportes) </h4>
+      <h4 className="text-center">Calificación de los parques</h4>
         <BarChart
         width={500}
         height={300}
@@ -365,7 +363,7 @@ const HomePage = () => (
 <div class="container mt-5">
   <div class="row">
     <div class="col-sm-6">
-      <h4>Pregunta 11: Usuarios que más aportan</h4>
+      <h4 className="text-center">Usuarios nuevos por mes</h4>
         <LineChart width={500} height={250} data={data} margin={{ top: 5, right: 20, bottom: 5, left: 0 }}>
            <Line type="monotone" dataKey="users" stroke="#2d572c" />
            <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
@@ -375,36 +373,36 @@ const HomePage = () => (
          </LineChart>
     </div>
     <div class="col-sm-6 other">
-      <h4>Pregunta 12: Entrenadores en la app</h4>
+      <h4 className="text-center">Viajes planeados con la app</h4>
         <br/>
         <br/>
-      <div className="texto border rounded border-success mt-4"> 24 <br /> Entrenadores registrados</div>
+      <div className="texto border rounded border-success mt-4"> 24 <br /> viajes</div>
     </div>
   </div>
 </div>
 <div class="container mt-5">
   <div class="row">
     <div class="col-sm-6">
-      <h4>Pregunta 13: Máquinas en mal estado</h4>
-        <ComposedChart
-        width={500}
-        height={400}
-        data={ dataComposed}
-        margin={{
-          top: 20, right: 20, bottom: 20, left: 20,
-        }}
-      >
-        <CartesianGrid stroke="#f5f5f5" />
-        <XAxis dataKey="name" />
-        <YAxis />
-        <Tooltip />
-        <Legend />
-        <Bar dataKey="uv" barSize={20} fill="#413ea0" />
-        <Line type="monotone" dataKey="uv" stroke="#ff7300" />
-      </ComposedChart>
+      <h4 className="text-center">Cobertura wifi</h4>
+        <PieChart width={400} height={400}>
+        <Pie
+          data={data3}
+          cx={220}
+          cy={120}
+          labelLine={false}
+          label={renderCustomizedLabel}
+          outerRadius={100}
+          fill="#8884d8"
+          dataKey="value"
+        >
+          {
+            data.map((entry, index) => <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />)
+          }
+        </Pie>
+      </PieChart>
     </div>
     <div class="col-sm-6 other">
-      <h4>Pregunta 14: Usuarios tiempo real</h4>
+      <h4 className="text-center">Usuarios tiempo real</h4>
       <br/>
       <br/>
         <div className="texto border rounded border-success mt-4"> 243 <br /> Usuarios Online</div>
@@ -414,8 +412,8 @@ const HomePage = () => (
 <div class="container mt-5">
   <div class="row">
     <div class="col-sm-6">
-      <h4>Pregunta 15: Reviews negativos</h4>
-        <RadarChart cx={170} cy={200} outerRadius={150} width={500} height={500} data={dataRadar}>
+      <h4  className="text-center" >Reviews negativos</h4>
+        <RadarChart cx={250} cy={200} outerRadius={120} width={500} height={500} data={dataRadar}>
         <PolarGrid />
         <PolarAngleAxis dataKey="subject" />
         <PolarRadiusAxis />
@@ -423,11 +421,14 @@ const HomePage = () => (
       </RadarChart>
     </div>
     <div class="col-sm-6 other">
-      <h4>Pregunta 16: Parques en la aplicación</h4>
-        <br/>
-        <br/>
-          <br/>
-          <br/>
+      <h4 className="text-center" >Parques registrados en la app en la aplicación</h4>
+          <LineChart width={400} height={200} data={data} margin={{ top: 15, right: 0, bottom: 5, left: 55 }}>
+             <Line type="monotone" dataKey="users" stroke="#2d572c" />
+             <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
+             <XAxis dataKey="name" />
+             <YAxis />
+             <Tooltip />
+           </LineChart>
           <div className="texto border rounded border-success mt-4"> 160 <br /> Parques registrados</div>
     </div>
   </div>
@@ -435,26 +436,26 @@ const HomePage = () => (
 <div class="container mt-5">
   <div class="row">
     <div class="col-sm-6">
-      <h4>Pregunta 17: Tipos de máquina</h4>
-        <PieChart width={500} height={500}>
-       <Pie
-         data={data3}
-         cx={150}
-         cy={100}
-         labelLine={false}
-         label={renderCustomizedLabel}
-         outerRadius={80}
-         fill="#8884d8"
-         dataKey="value"
-       >
-         {
-           data.map((entry, index) => <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />)
-         }
-       </Pie>
-     </PieChart>
+      <h4 className="text-center" >Porcentaje de hombres y mujeres</h4>
+        <PieChart width={400} height={400}>
+        <Pie
+          data={data3}
+          cx={220}
+          cy={120}
+          labelLine={false}
+          label={renderCustomizedLabel}
+          outerRadius={100}
+          fill="#8884d8"
+          dataKey="value"
+        >
+          {
+            data.map((entry, index) => <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />)
+          }
+        </Pie>
+      </PieChart>
     </div>
     <div class="col-sm-6 other">
-      <h4>Pregunta 18: Hombres/ Mujeres </h4>
+      <h4 className="text-center" >Pregunta 18: Hombres/ Mujeres </h4>
         <BarChart
         width={500}
         height={300}
@@ -475,10 +476,6 @@ const HomePage = () => (
     </div>
   </div>
 </div>
-
-
-
-
 
   </div>
 );

@@ -5,7 +5,7 @@ import { withFirebase } from '../Firebase';
 import { PasswordForgetForm } from '../PasswordForget';
 import PasswordChangeForm from '../PasswordChange';
 
-class AccountPage extends Component {
+class V5Page extends Component {
   constructor(props) {
     super(props);
 
@@ -71,4 +71,4 @@ const UserList = ({ users }) => (
   </ul>
 );
 
-export default withFirebase(AccountPage);
+export default withFirebase(V5Page);
